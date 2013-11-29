@@ -23,19 +23,16 @@ PlayerElection.prototype.start = function() {
       continue;
     }
 
-    if (players[0] === this._rayo && players[1] === this._tim) {
+    var isRayoTim = players[0] === this._rayo && players[1] === this._tim ||
+                    players[0] === this._tim && players[1] === this._rayo;
+
+    if (isRayoTim) {
       this._registerPlayerPair(players);
       continue;
     }
 
     if (this._alreadyChosen(this._rayo) || this._alreadyChosen(this._tim)) {
       this._registerPlayerPair(players);
-      continue;
-    }
-
-    var isRayoTim = players[0] === this._rayo && players[1] === this._tim ||
-                    players[0] === this._tim && players[1] === this._rayo;
-    if (!isRayoTim) {
       continue;
     }
   }
