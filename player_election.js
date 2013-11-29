@@ -33,8 +33,9 @@ PlayerElection.prototype.start = function() {
       continue;
     }
 
-    if (players[0] === this._rayo && players[1] !== this._tim ||
-        players[0] !== this._rayo && players[1] === this._tim) {
+    var isRayoTim = players[0] === this._rayo && players[1] === this._tim ||
+                    players[0] === this._tim && players[1] === this._rayo;
+    if (!isRayoTim) {
       continue;
     }
   }
